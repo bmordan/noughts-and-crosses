@@ -41,6 +41,33 @@ def getPlay
     end
 end
 
+def _play(play)
+    position = play.to_i
+
+    if position.is_a? Integer
+        begin
+            place($player, position)
+        rescue IndexError => err
+            return err.message
+        end
+
+        puts "won?"
+        print won?($player)
+        puts $board
+
+        if won?($player)
+            return "#{$player} wins!"
+        elsif draw?()
+            return "draw!"
+        else
+            $player = $player == "x" ? "o" : "x"
+            return "next play"
+        end
+    else
+        puts "play must be a number"
+    end
+end
+
 def place(char, position)
     index = position - 1
     $board[index] == "-" ? $board[index] = char : raise(IndexError, "position #{position} occupied")
@@ -48,25 +75,23 @@ def place(char, position)
 end
 
 def won?(char)
-    unless draw?()
-        state = $board
-        .clone
-        .gsub("-","_")
-        .gsub(char == "x" ? "o" : "x","_")
-        
-        wins = [
-            "###______",
-            "___###___",
-            "______###",
-            "#__#__#__",
-            "_#__#__#_",
-            "__#__#__#",
-            "#___#___#",
-            "__#_#_#__"
-        ]
-        .map  {|pattern| pattern.gsub("#", char)}
-        .any? {|pattern| pattern == state}
-    end
+    state = $board
+    .clone
+    .gsub("-","_")
+    .gsub(char == "x" ? "o" : "x","_")
+    
+    wins = [
+        "###......",
+        "...###...",
+        "......###",
+        "#..#..#..",
+        ".#..#..#.",
+        "..#..#..#",
+        "#...#...#",
+        "..#.#.#.."
+    ]
+    .map  {|pattern| pattern.gsub("#", char)}
+    .any? {|pattern| Regexp.new(pattern).match(state)}
 end
 
 def reset
