@@ -6,6 +6,7 @@ RUN apt-get update && \
 # Install gems
 ENV APP_HOME /app
 ENV HOME /root
+ENV PORT 4567
 RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
 COPY Gemfile* $APP_HOME/
