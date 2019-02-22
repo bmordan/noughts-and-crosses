@@ -1,3 +1,13 @@
+.wh-bg-green {
+    background-color: rgb(26, 221, 151);
+}
+
+body {
+    background-image: url("https://whitehat.org.uk/profile-apprentice.7817d0ab.svg");
+    background-position: center 80vh;
+    background-repeat: no-repeat;
+}
+
 table {
     border: solid 0px transparent;
     border-width: 0;
