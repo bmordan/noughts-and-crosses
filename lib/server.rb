@@ -1,6 +1,8 @@
 require 'sinatra'
 require_relative './game.rb'
 
+set :bind, '0.0.0.0'
+
 get '/board' do
     reset()
     erb :board, :locals => {:display => $board, :message => "ready player one"}
