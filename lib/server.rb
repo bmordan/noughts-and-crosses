@@ -5,12 +5,14 @@ set :bind, '0.0.0.0'
 
 get '/board' do
     reset()
-    erb :board, :locals => {:display => $board, :message => "ready player one"}
+    erb :board, :locals => {:display => $board, :message => "ready player one", :playAgain => false}
 end
 
 get '/play/:position' do
     message = _play(params['position'])
-    erb :board, :locals => {:display => $board, :message => message}
+    status = message.split(//).last(5).join()
+    playAgain = status == "wins!" || status == "draw!"
+    erb :board, :locals => {:display => $board, :message => message, :playAgain => playAgain}
 end
 
 get '/' do

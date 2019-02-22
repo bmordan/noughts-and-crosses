@@ -16,7 +16,10 @@
             <td onclick="play(9)" ><%= display[8] %></td>
         </tr>
     </table>
-    <aside class="mt3 tc pv3 w-100">
-        <span id="message"><%= message %></span>
-    </aside>
+    <section class="mt3 tc pv3 w-100">
+        <span id="message" class="dib pv2"><%= message %></span>
+        <% if playAgain %>
+            <button class="dib ml2 bg-green bn white pv2 ph3" onclick="newGame()">Play Again</button>
+        <% end %>
+    </section>
 </section>

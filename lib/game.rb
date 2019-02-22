@@ -51,10 +51,6 @@ def _play(play)
             return err.message
         end
 
-        puts "won?"
-        print won?($player)
-        puts $board
-
         if won?($player)
             return "#{$player} wins!"
         elsif draw?()
@@ -75,11 +71,6 @@ def place(char, position)
 end
 
 def won?(char)
-    state = $board
-    .clone
-    .gsub("-","_")
-    .gsub(char == "x" ? "o" : "x","_")
-    
     wins = [
         "###......",
         "...###...",
@@ -91,7 +82,7 @@ def won?(char)
         "..#.#.#.."
     ]
     .map  {|pattern| pattern.gsub("#", char)}
-    .any? {|pattern| Regexp.new(pattern).match(state)}
+    .any? {|pattern| Regexp.new(pattern).match($board)}
 end
 
 def reset
