@@ -1,20 +1,22 @@
-<table>
-    <tr>
-        <td onclick="play(1)"><%= display[0] %></td>
-        <td onclick="play(2)"><%= display[1] %></td>
-        <td onclick="play(3)"><%= display[2] %></td>
-    </tr>
-    <tr>
-        <td onclick="play(4)"><%= display[3] %></td>
-        <td onclick="play(5)"><%= display[4] %></td>
-        <td onclick="play(6)"><%= display[5] %></td>
-    </tr>
-    <tr>
-        <td onclick="play(7)"><%= display[6] %></td>
-        <td onclick="play(8)"><%= display[7] %></td>
-        <td onclick="play(9)"><%= display[8] %></td>
-    </tr>
-    <tr>
-        <td id="message" colspan="3"><%= message %></td>
-    </tr>
-</table>
+<section>
+    <table>
+        <tr>
+            <td onclick="play(1)" class="bb br"><%= display[0] %></td>
+            <td onclick="play(2)" class="bb br"><%= display[1] %></td>
+            <td onclick="play(3)" class="bb"><%= display[2] %></td>
+        </tr>
+        <tr>
+            <td onclick="play(4)" class="bb br"><%= display[3] %></td>
+            <td onclick="play(5)" class="bb br"><%= display[4] %></td>
+            <td onclick="play(6)" class="bb"><%= display[5] %></td>
+        </tr>
+        <tr>
+            <td onclick="play(7)" class="br"><%= display[6] %></td>
+            <td onclick="play(8)" class="br"><%= display[7] %></td>
+            <td onclick="play(9)" ><%= display[8] %></td>
+        </tr>
+    </table>
+    <aside class="mt3 tc pv3 w-100">
+        <span id="message"><%= message %></span>
+    </aside>
+</section>
