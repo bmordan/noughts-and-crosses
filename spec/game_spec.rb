@@ -54,7 +54,7 @@ describe "The Game" do
         place("o",9)
         expect(won?("x")).to eq(false)
         expect(won?("o")).to eq(false)
-        expect(draw?()).to eq(true)
+        expect(draw?($board)).to eq(true)
     end
 
     it "can be display the board in the terminal" do
